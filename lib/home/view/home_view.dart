@@ -176,11 +176,29 @@ class HomeView extends StatelessWidget {
             child: ListView(
               padding: EdgeInsets.symmetric(horizontal: 16),
               children: [
-                _buildRestaurantCard(),
+                _buildRestaurantCard(
+                  image: "assets/images/food.jpeg",
+                  name: "Rose Garden Restaurant",
+                  description: "Burger • Chicken • Wings",
+                  rating: 4.7,
+                  time: "20 min",
+                ),
                 SizedBox(height: 15),
-                _buildRestaurantCard(),
+                _buildRestaurantCard(
+                  image: "assets/images/food.jpeg",
+                  name: "Rose Garden Restaurant",
+                  description: "Burger • Chicken • Wings",
+                  rating: 4.3,
+                  time: "15 min",
+                ),
                 SizedBox(height: 15),
-                _buildRestaurantCard(),
+                _buildRestaurantCard(
+                  image: "assets/images/food.jpeg",
+                  name: "Rose Garden Restaurant",
+                  description: "Burger • Chicken • Wings",
+                  rating: 4.5,
+                  time: "25 min",
+                ),
               ],
             ),
           ),
@@ -189,11 +207,7 @@ class HomeView extends StatelessWidget {
     );
   }
 
-
-
-
-
-// Catergory
+  // Catergory
 
   Widget _buildCategoryChip(
     bool isActive,
@@ -242,12 +256,17 @@ class HomeView extends StatelessWidget {
     );
   }
 
-
-
-  
-//  Restaurents Cards
-  Widget _buildRestaurantCard() {
+  //  Restaurents Cards
+  Widget _buildRestaurantCard({
+    required String image,
+    required String name,
+    required String description,
+    required double rating,
+    required String time,
+    String delivery = "Free",
+  }) {
     return Container(
+      margin: const EdgeInsets.only(bottom: 15),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15),
@@ -255,7 +274,7 @@ class HomeView extends StatelessWidget {
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.1),
             blurRadius: 6,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -264,9 +283,9 @@ class HomeView extends StatelessWidget {
         children: [
           /// IMAGE
           ClipRRect(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
             child: Image.asset(
-              "assets/images/toast.jpeg",
+              image,
               height: 150,
               width: double.infinity,
               fit: BoxFit.cover,
@@ -280,36 +299,36 @@ class HomeView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Rose Garden Restaurant",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  name,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
 
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
 
-                Text(
-                  "Burger • Chicken • Wings",
-                  style: TextStyle(color: Colors.grey),
-                ),
+                Text(description, style: const TextStyle(color: Colors.grey)),
 
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
 
                 Row(
                   children: [
-                    Icon(Icons.star, color: Colors.orange, size: 18),
-                    SizedBox(width: 5),
-                    Text("4.7"),
+                    const Icon(Icons.star, color: Colors.orange, size: 18),
+                    const SizedBox(width: 5),
+                    Text(rating.toString()),
 
-                    SizedBox(width: 15),
+                    const SizedBox(width: 15),
 
-                    Icon(Icons.delivery_dining, size: 18),
-                    SizedBox(width: 5),
-                    Text("Free"),
+                    const Icon(Icons.delivery_dining, size: 18),
+                    const SizedBox(width: 5),
+                    Text(delivery),
 
-                    SizedBox(width: 15),
+                    const SizedBox(width: 15),
 
-                    Icon(Icons.access_time, size: 18),
-                    SizedBox(width: 5),
-                    Text("20 min"),
+                    const Icon(Icons.access_time, size: 18),
+                    const SizedBox(width: 5),
+                    Text(time),
                   ],
                 ),
               ],
