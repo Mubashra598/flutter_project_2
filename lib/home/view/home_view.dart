@@ -177,7 +177,7 @@ class HomeView extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 16),
               children: [
                 _buildRestaurantCard(
-                  image: "assets/images/food.jpeg",
+                  image: "https://i.pinimg.com/736x/49/56/ea/4956eab9dcc963b5b31b478f3619586a.jpg",
                   name: "Rose Garden Restaurant",
                   description: "Burger • Chicken • Wings",
                   rating: 4.7,
@@ -185,16 +185,16 @@ class HomeView extends StatelessWidget {
                 ),
                 SizedBox(height: 15),
                 _buildRestaurantCard(
-                  image: "assets/images/food.jpeg",
-                  name: "Rose Garden Restaurant",
+                  image: "https://i.pinimg.com/736x/5b/51/17/5b5117e4d8e3595b8e2254e377b34dc2.jpg",
+                  name: "Riverside Kitchen",
                   description: "Burger • Chicken • Wings",
                   rating: 4.3,
                   time: "15 min",
                 ),
                 SizedBox(height: 15),
                 _buildRestaurantCard(
-                  image: "assets/images/food.jpeg",
-                  name: "Rose Garden Restaurant",
+                  image: "https://i.pinimg.com/1200x/18/d3/59/18d359b0711a886376e1c8b551495fc6.jpg",
+                  name: "Old Village Grill",
                   description: "Burger • Chicken • Wings",
                   rating: 4.5,
                   time: "25 min",
@@ -284,7 +284,7 @@ class HomeView extends StatelessWidget {
           /// IMAGE
           ClipRRect(
             borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
-            child: Image.asset(
+            child: Image.network(
               image,
               height: 150,
               width: double.infinity,
